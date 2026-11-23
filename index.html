@@ -12,11 +12,12 @@
 <meta property="og:site_name" content="Bettada Madilu Homestay">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Outfit:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&family=Nunito+Sans:wght@400;600;700&family=Outfit:wght@500;600;700&display=swap">
+<script>document.documentElement.classList.add("js","intro");setTimeout(function(){document.documentElement.classList.remove("intro")},9000)</script>
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LodgingBusiness", "name": "Bettada Madilu Homestay", "telephone": "+91 63632 49754", "address": {"@type": "PostalAddress", "streetAddress": "Mullodi", "addressLocality": "Kudremukh", "addressRegion": "Karnataka", "postalCode": "577124", "addressCountry": "IN"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "203"}, "openingHours": "Mo-Su 00:00-23:59"}</script>
 </head>
-<body>
+<body class="home">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="container bar">
@@ -30,10 +31,13 @@
 </header>
 <main id="main">
 <section class="hero">
-  <img class="bg" src="Images/house-hills.jpg" width="1000" height="448" alt="Bettada Madilu Homestay with its orange tile roof below the green Kudremukh hills" fetchpriority="high">
+  <div class="stage">
+    <img class="bg" src="images/house-hills.jpg" width="1000" height="448" alt="Bettada Madilu Homestay with its orange tile roof below the green Kudremukh hills" fetchpriority="high">
+    <video id="heroVideo" muted playsinline preload="auto" poster="images/house-hills.jpg" aria-hidden="true"><source src="video/intro.mp4" type="video/mp4"></video>
+  </div>
   <div class="container">
     <span class="eyebrow">Mullodi &middot; Kudremukh &middot; Karnataka</span>
-    <h1>Bettada Madilu Homestay</h1>
+    <h1>Bettada Madilu <em>Homestay</em></h1>
     <p class="intro">A family-run stay at the foot of Kudremukh. Home-cooked Malnad food, jeep transfers and a bed close to the forest checkpost, so your trek starts early.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="contact.html#enquiry">Enquire Now</a>
@@ -41,7 +45,13 @@
     </div>
     <p class="callline">Or call <a href="tel:+916363249754">+91 63632 49754</a></p>
   </div>
+  <div class="opening" aria-hidden="true"><span>Kudremukh &middot; Mullodi</span><b>Bettada Madilu</b></div>
+  <a class="scroll-cue" href="#welcome" aria-label="Scroll down"><i></i></a>
+  <button class="snd" id="sndBtn" type="button" aria-pressed="false" aria-label="Turn video sound on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="w1" d="M16.5 9a4 4 0 0 1 0 6M19 6.5a8 8 0 0 1 0 11"/></svg></button>
+  <svg class="ridge" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120V78l120-34 140 40 150-62 150 58 130-30 170 52 140-44 170 46 120-30 150 40v76z" fill="#fff"/></svg>
 </section>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>Kudremukh Trek</span><span>Malnad Meals</span><span>4x4 Jeep Rides</span><span>Bonfire Nights</span><span>Waterfall Walks</span><span>Open 24 Hours</span><span>Kudremukh Trek</span><span>Malnad Meals</span><span>4x4 Jeep Rides</span><span>Bonfire Nights</span><span>Waterfall Walks</span><span>Open 24 Hours</span></div></div>
 
 <div class="facts">
   <div class="container"><div class="grid">
@@ -52,7 +62,7 @@
   </div></div>
 </div>
 
-<section class="section">
+<section class="section" id="welcome">
   <div class="container split">
     <div class="text-block reveal">
       <span class="eyebrow">Welcome</span>
@@ -61,7 +71,7 @@
       <p>We are very close to the Kudremukh Forest Checkpost, so guests can start the Kudremukh Peak trek early. Arriving late is fine. We arrange jeep pickups at any hour, midnight included.</p>
       <div class="btn-row"><a class="link" href="about.html">Read our story</a></div>
     </div>
-    <div class="photo tall reveal"><img src="Images/group-front.jpg" width="760" height="1144" alt="A group of guests posing in front of the homestay" loading="lazy"></div>
+    <div class="photo tall reveal"><img src="images/group-front.jpg" width="760" height="1144" alt="A group of guests posing in front of the homestay" loading="lazy"></div>
   </div>
 </section>
 
@@ -81,7 +91,7 @@
     <h2 class="h2">The whole homestay</h2>
     <div class="grid rooms">
       <article class="room reveal">
-        <div class="pic"><img src="Images/tents-house.jpg" width="1000" height="674" alt="The homestay with camping tents set up in the front yard" loading="lazy"></div>
+        <div class="pic"><img src="images/tents-house.jpg" width="1000" height="674" alt="The homestay with camping tents set up in the front yard" loading="lazy"></div>
         <div class="body">
           <h3>Whole homestay for your group</h3>
           <p class="desc">Four large bedrooms, two bathrooms and a living room, with hill views from the rooms and a swimming pool. A good fit for trekking groups, friends and families.</p>
@@ -101,10 +111,10 @@
       <h2 class="h2">A look around</h2>
     </div>
     <div class="strip">
-      <a href="gallery.html"><img src="Images/tents-house.jpg" width="1000" height="674" alt="Homestay with tents in the yard" loading="lazy"></a>
-      <a href="gallery.html"><img src="Images/bonfire.jpg" width="760" height="936" alt="Guests around a bonfire at night" loading="lazy"></a>
-      <a href="gallery.html"><img src="Images/waterfall-swim.jpg" width="1000" height="448" alt="Guests playing in a waterfall pool" loading="lazy"></a>
-      <a href="gallery.html"><img src="Images/guests-balcony.jpg" width="900" height="676" alt="Guests outside the homestay with hills behind" loading="lazy"></a>
+      <a href="gallery.html"><img src="images/tents-house.jpg" width="1000" height="674" alt="Homestay with tents in the yard" loading="lazy"></a>
+      <a href="gallery.html"><img src="images/bonfire.jpg" width="760" height="936" alt="Guests around a bonfire at night" loading="lazy"></a>
+      <a href="gallery.html"><img src="images/waterfall-swim.jpg" width="1000" height="448" alt="Guests playing in a waterfall pool" loading="lazy"></a>
+      <a href="gallery.html"><img src="images/guests-balcony.jpg" width="900" height="676" alt="Guests outside the homestay with hills behind" loading="lazy"></a>
     </div>
     <p class="center" style="margin-top:22px"><a class="link" href="gallery.html">View the full gallery</a></p>
   </div>
