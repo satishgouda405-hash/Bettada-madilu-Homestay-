@@ -1,0 +1,547 @@
+<title>Bettada Madilu Homestay</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Family-run homestay in Mullodi, Kudremukh. Meals, jeep pickup and trek support for Kudremukh Peak.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+/* Layout: sticker-and-polaroid scrapbook of a trekker's basecamp. Chunky outlined cards, hard shadows, one ridge-line trail drawn on load. */
+:root {
+  --ink: #12251b;
+  --paper: #f4f7ef;
+  --mist: #dfeadb;
+  --tile: #b83d1b;
+  --sun: #ffc83d;
+  --moss: #2e9b5a;
+  --sky: #8fd0f2;
+  --display: "Bricolage Grotesque", "Arial Narrow", Impact, system-ui, sans-serif;
+  --body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Space Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --line: 3px solid var(--ink);
+  --shadow: 5px 5px 0 var(--ink);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.55;
+  overflow-x: clip;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--paper); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: 0.98; letter-spacing: -0.02em; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--tile); outline-offset: 3px; }
+
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+section { padding-block: 64px; }
+.eyebrow {
+  display: inline-block; font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--sun); border: var(--line); border-radius: 999px; padding: 8px 16px; box-shadow: 3px 3px 0 var(--ink);
+}
+.h2 { font-size: clamp(2.2rem, 7vw, 4rem); margin-top: 18px; }
+.h2 em { font-style: normal; color: var(--tile); }
+.lede { max-width: 56ch; margin-top: 16px; font-size: 1.1rem; }
+
+/* buttons + stickers */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--display); font-weight: 700; font-size: 1rem; letter-spacing: 0.02em; text-transform: uppercase; text-decoration: none;
+  padding: 14px 22px; border: var(--line); border-radius: 999px; box-shadow: var(--shadow); cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease; background: var(--paper); color: var(--ink);
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+.btn-tile { background: var(--tile); color: #fff; }
+.btn-moss { background: var(--moss); }
+.btn-sun { background: var(--sun); }
+.sticker {
+  display: inline-block; font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 8px 14px; border: var(--line); border-radius: 999px; background: var(--sun); box-shadow: 3px 3px 0 var(--ink); white-space: nowrap;
+}
+
+/* header */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--paper); border-bottom: var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 1.15rem; letter-spacing: -0.01em; }
+.brand-mark { width: 40px; height: 40px; border-radius: 50%; border: var(--line); background: var(--moss); display: grid; place-items: center; font-size: 0.95rem; box-shadow: 2px 2px 0 var(--ink); }
+.brand b { color: var(--tile); font-weight: 800; }
+.nav { display: none; gap: 22px; font-weight: 700; }
+.nav a { text-decoration: none; }
+.nav a:hover { color: var(--tile); }
+.top-actions { display: flex; align-items: center; gap: 10px; }
+.top .btn { padding: 9px 16px; font-size: 0.85rem; box-shadow: 3px 3px 0 var(--ink); }
+.menu-btn { width: 44px; height: 44px; border-radius: 50%; border: var(--line); background: var(--sun); cursor: pointer; display: grid; place-items: center; box-shadow: 2px 2px 0 var(--ink); }
+.menu-btn span, .menu-btn span::before, .menu-btn span::after { display: block; width: 18px; height: 3px; background: var(--ink); border-radius: 2px; content: ""; position: relative; }
+.menu-btn span::before { position: absolute; top: -6px; } .menu-btn span::after { position: absolute; top: 6px; }
+.drawer { display: none; border-top: var(--line); background: var(--mist); }
+.drawer.open { display: block; }
+.drawer a { display: block; padding: 14px max(16px, env(safe-area-inset-left, 0px)); font-family: var(--display); font-weight: 800; font-size: 1.4rem; text-decoration: none; border-bottom: 2px solid var(--ink); }
+@media (min-width: 880px) { .nav { display: flex; } .menu-btn { display: none; } .drawer { display: none !important; } }
+
+/* hero */
+.hero { padding-block: 40px 0; background: linear-gradient(var(--paper), var(--mist)); }
+.hero-grid { display: grid; gap: 36px; align-items: center; }
+.hero-rating { display: inline-flex; align-items: center; gap: 8px; background: var(--moss); border: var(--line); border-radius: 999px; padding: 8px 16px; font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; box-shadow: 3px 3px 0 var(--ink); transform: rotate(-2deg); }
+.hero h1 { font-size: clamp(3rem, 12.5vw, 6.6rem); margin-top: 20px; font-variation-settings: "wdth" 82; }
+.hero h1 .mark { position: relative; z-index: 0; color: var(--tile); white-space: nowrap; }
+.hero h1 .mark::after { content: ""; position: absolute; left: -2%; right: -2%; bottom: 0.04em; height: 0.2em; background: var(--sun); z-index: -1; transform: skew(-8deg); }
+.hero .sub { margin-top: 20px; font-size: 1.2rem; max-width: 34ch; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+.hero-num { margin-top: 18px; font-family: var(--mono); font-size: 14px; }
+.hero-num strong { font-size: 1.15rem; user-select: all; }
+
+.polas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.pola { background: #fff; border: var(--line); border-radius: 8px; padding: 6px 6px 10px; box-shadow: var(--shadow); transition: transform .25s ease; margin: 0; }
+.pola img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border: 2px solid var(--ink); }
+.pola figcaption { margin-top: 8px; display: flex; }
+.pola .sticker { font-size: 10px; padding: 8px 10px; box-shadow: 2px 2px 0 var(--ink); border-width: 2px; }
+.pola:nth-child(1) { transform: rotate(-3deg); }
+.pola:nth-child(2) { transform: rotate(2deg) translateY(14px); }
+.pola:nth-child(3) { transform: rotate(-1.5deg); }
+.pola:hover { transform: rotate(0) translateY(-6px) scale(1.03); z-index: 2; }
+.pola:nth-child(1) .sticker { background: var(--sky); } .pola:nth-child(2) .sticker { background: var(--sun); } .pola:nth-child(3) .sticker { background: var(--moss); }
+@media (min-width: 880px) {
+  .hero-grid { grid-template-columns: 1.1fr 0.9fr; }
+  .polas { gap: 16px; }
+  .pola { padding: 9px 9px 14px; }
+  .pola .sticker { font-size: 12px; }
+}
+
+/* trail */
+.trail { position: relative; margin-top: 40px; aspect-ratio: 600 / 250; width: 100%; max-height: 300px; }
+.trail svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.trail .tag { position: absolute; transform: translate(-50%, -100%); }
+.trail .tag.peak { left: 78%; top: 24%; background: var(--sun); }
+.trail .tag.home { left: 16%; top: 78%; background: var(--tile); color: #fff; }
+.trail .tag.post { left: 46%; top: 66%; background: var(--sky); }
+.trail-path { stroke-dasharray: 6 9; }
+.trail-draw { stroke-dasharray: 700; stroke-dashoffset: 700; animation: draw 2.6s .5s ease-out forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.trail .tag { animation: pop .5s ease-out both; }
+.trail .tag.home { animation-delay: .3s; } .trail .tag.post { animation-delay: 1.5s; } .trail .tag.peak { animation-delay: 2.7s; }
+@keyframes pop { from { opacity: 0; margin-top: 10px; } to { opacity: 1; margin-top: 0; } }
+
+/* marquee */
+.band { background: var(--moss); border-block: var(--line); transform: rotate(-1.4deg); margin: 28px -10px 0; overflow: hidden; position: relative; z-index: 3; box-shadow: 0 5px 0 var(--ink); }
+.band-track { display: flex; width: max-content; animation: slide 32s linear infinite; }
+.band-track span { font-family: var(--display); font-weight: 800; font-size: 1.15rem; letter-spacing: .03em; text-transform: uppercase; padding: 12px 0; white-space: nowrap; display: inline-flex; align-items: center; }
+.band-track span::after { content: ""; width: 14px; height: 14px; background: var(--tile); border: 2px solid var(--ink); margin: 0 26px; transform: rotate(45deg); }
+@keyframes slide { to { transform: translateX(-50%); } }
+.band:hover .band-track { animation-play-state: paused; }
+
+/* package */
+.cards { display: grid; gap: 22px; margin-top: 40px; }
+.pkg { background: #fff; border: var(--line); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); position: relative; transition: transform .2s ease; }
+.pkg:hover { transform: rotate(0deg) translateY(-4px); }
+.pkg:nth-child(odd) { transform: rotate(-1deg); } .pkg:nth-child(even) { transform: rotate(1deg); }
+.pkg .when { margin-bottom: 14px; }
+.pkg h3 { font-size: 1.7rem; }
+.pkg p { margin-top: 8px; }
+.pkg:nth-child(1) .when { background: var(--sky); } .pkg:nth-child(2) .when { background: var(--sun); } .pkg:nth-child(3) .when { background: var(--moss); } .pkg:nth-child(4) .when { background: var(--tile); color: #fff; }
+.dish { margin-top: 32px; display: grid; gap: 22px; background: var(--ink); color: var(--paper); border: var(--line); border-radius: 22px; padding: 26px; box-shadow: 6px 6px 0 var(--tile); }
+.dish h3 { font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--sun); }
+.dish p { margin-top: 10px; max-width: 52ch; }
+.jeep { display: grid; gap: 14px; align-content: start; }
+.jeep .sticker { justify-self: start; background: var(--sky); color: var(--ink); }
+.jeep ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.jeep li { padding-left: 30px; position: relative; }
+.jeep li::before { content: ""; position: absolute; left: 0; top: 7px; width: 16px; height: 16px; border-radius: 50%; background: var(--moss); border: 2px solid var(--paper); }
+@media (min-width: 700px) { .cards { grid-template-columns: repeat(2, 1fr); } .dish { grid-template-columns: 1fr 1fr; align-items: center; } }
+@media (min-width: 1000px) { .cards { grid-template-columns: repeat(4, 1fr); } }
+
+/* stay */
+.stay { background: var(--mist); border-block: var(--line); }
+.stay-grid { display: grid; gap: 40px; margin-top: 36px; align-items: start; }
+.photo-stack { position: relative; padding-bottom: 36px; }
+.photo-stack .big { border: var(--line); border-radius: 18px; box-shadow: 6px 6px 0 var(--ink); overflow: hidden; background: #fff; }
+.photo-stack .big img { width: 100%; aspect-ratio: 3/2; object-fit: cover; }
+.photo-stack .small { position: absolute; right: -4px; bottom: 0; width: 46%; border: var(--line); border-radius: 12px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(3deg); background: #fff; overflow: hidden; }
+.photo-stack .small img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.price { position: absolute; left: -6px; top: -22px; width: 124px; height: 124px; border-radius: 50%; background: var(--sun); border: var(--line); box-shadow: 4px 4px 0 var(--ink); display: grid; place-content: center; text-align: center; transform: rotate(-8deg); animation: wob 5s ease-in-out infinite; z-index: 2; }
+.price small { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.price strong { font-family: var(--display); font-size: 2rem; font-weight: 800; line-height: 1; }
+@keyframes wob { 50% { transform: rotate(-3deg) scale(1.04); } }
+.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fact { background: #fff; border: var(--line); border-radius: 16px; padding: 16px; box-shadow: 4px 4px 0 var(--ink); }
+.fact b { display: block; font-family: var(--display); font-weight: 800; font-size: 2.3rem; line-height: 1; color: var(--tile); }
+.fact span { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; font-weight: 700; }
+.fact.wide { grid-column: 1 / -1; background: var(--sun); display: flex; align-items: center; gap: 14px; }
+.fact.wide b { color: var(--ink); }
+.checks { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 10px; }
+.checks li { padding-left: 34px; position: relative; font-weight: 500; }
+.checks li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--tile); color: #fff; border: 2px solid var(--ink); display: grid; place-items: center; font-size: 13px; font-weight: 700; line-height: 1; }
+@media (min-width: 880px) { .stay-grid { grid-template-columns: 1.05fr 0.95fr; } }
+
+/* why */
+.why-grid { display: grid; gap: 36px; margin-top: 36px; align-items: center; }
+.why-list { display: grid; gap: 18px; }
+.why { display: grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: start; }
+.why i { width: 56px; height: 56px; border-radius: 50%; border: var(--line); display: grid; place-items: center; font-family: var(--display); font-style: normal; font-weight: 800; font-size: 1.3rem; box-shadow: 3px 3px 0 var(--ink); }
+.why:nth-child(1) i { background: var(--sky); } .why:nth-child(2) i { background: var(--sun); } .why:nth-child(3) i { background: var(--moss); }
+.why h3 { font-size: 1.5rem; } .why p { margin-top: 4px; }
+.family { border: var(--line); border-radius: 18px; background: #fff; box-shadow: 6px 6px 0 var(--ink); transform: rotate(1.5deg); padding: 10px 10px 16px; max-width: 420px; margin-inline: auto; }
+.family img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 40%; border: 2px solid var(--ink); }
+.family figcaption { margin-top: 12px; font-family: var(--display); font-weight: 700; font-size: 1.2rem; text-align: center; }
+@media (min-width: 880px) { .why-grid { grid-template-columns: 1.1fr 0.9fr; } }
+
+/* gallery */
+.gallery { background: var(--ink); color: var(--paper); border-block: var(--line); }
+.gallery .eyebrow { color: var(--ink); }
+.gallery .h2 em { color: var(--sun); }
+.mason { margin-top: 36px; display: grid; gap: 26px; grid-template-columns: 1fr; }
+.mason .pola { background: var(--paper); color: var(--ink); box-shadow: 5px 5px 0 var(--tile); }
+.mason .pola img { aspect-ratio: auto; }
+.mason .pola:nth-child(odd) { transform: rotate(-1.6deg); } .mason .pola:nth-child(even) { transform: rotate(1.4deg); }
+.mason .pola:hover { transform: rotate(0) scale(1.02); }
+.mason .pola figcaption { font-family: var(--display); font-weight: 700; font-size: 1.05rem; }
+@media (min-width: 640px) { .mason { grid-template-columns: repeat(2, 1fr); align-items: start; } }
+@media (min-width: 980px) { .mason { grid-template-columns: repeat(3, 1fr); } }
+
+/* reviews */
+.rev-grid { display: grid; gap: 28px; margin-top: 36px; align-items: center; }
+.score { background: var(--sun); border: var(--line); border-radius: 24px; padding: 28px; box-shadow: 6px 6px 0 var(--ink); text-align: center; transform: rotate(-1.5deg); }
+.score b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(4.5rem, 20vw, 7rem); line-height: .9; }
+.stars { font-size: 1.8rem; letter-spacing: 4px; color: var(--ink); margin-top: 6px; }
+.score span { display: block; margin-top: 8px; font-family: var(--mono); font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+.themes { display: flex; flex-wrap: wrap; gap: 12px; }
+.theme { background: #fff; border: var(--line); border-radius: 999px; padding: 10px 18px; font-family: var(--display); font-weight: 700; font-size: 1.05rem; box-shadow: 3px 3px 0 var(--ink); }
+.theme:nth-child(3n+1) { transform: rotate(-1.5deg); background: var(--mist); } .theme:nth-child(3n+2) { transform: rotate(1deg); } .theme:nth-child(3n) { transform: rotate(-.5deg); background: var(--sky); }
+.rev-note { margin-top: 18px; font-size: .95rem; }
+@media (min-width: 800px) { .rev-grid { grid-template-columns: 0.8fr 1.2fr; } }
+
+/* contact */
+.contact { background: var(--tile); color: #fff; border-top: var(--line); }
+.contact .eyebrow { color: var(--ink); }
+.contact .h2 em { color: #fff; text-decoration: underline; text-decoration-color: var(--sun); text-decoration-thickness: 0.09em; text-underline-offset: 0.12em; }
+.contact-grid { display: grid; gap: 28px; margin-top: 32px; align-items: start; }
+.card { background: var(--paper); color: var(--ink); border: var(--line); border-radius: 20px; padding: 24px; box-shadow: 6px 6px 0 var(--ink); }
+.card h3 { font-size: 1.7rem; }
+.big-num { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(1.8rem, 8vw, 2.6rem); margin-top: 10px; user-select: all; letter-spacing: -0.01em; }
+.row-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.info { display: grid; gap: 12px; margin-top: 18px; padding: 0; list-style: none; }
+.info li { display: grid; grid-template-columns: 92px 1fr; gap: 10px; }
+.info b { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; padding-top: 4px; }
+form { display: grid; gap: 14px; margin-top: 14px; }
+label { display: grid; gap: 6px; font-family: var(--mono); font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+input, select { font: inherit; font-family: var(--body); font-size: 1rem; letter-spacing: 0; text-transform: none; font-weight: 500; padding: 12px 14px; border: var(--line); border-radius: 12px; background: #fff; color: var(--ink); width: 100%; min-width: 0; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.small-note { font-size: .88rem; margin-top: 12px; }
+@media (min-width: 880px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+
+footer { background: var(--ink); color: var(--paper); padding-block: 28px; font-size: .95rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+.fab { position: fixed; z-index: 40; right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); display: inline-flex; align-items: center; gap: 8px; background: var(--moss); border: var(--line); border-radius: 999px; padding: 12px 18px; font-family: var(--display); font-weight: 800; text-decoration: none; box-shadow: 4px 4px 0 var(--ink); }
+.fab:hover { background: var(--sun); }
+.fab svg { width: 22px; height: 22px; }
+
+/* load-in */
+.rise { animation: rise .7s cubic-bezier(.2,.8,.2,1) both; }
+.rise.d1 { animation-delay: .08s; } .rise.d2 { animation-delay: .18s; } .rise.d3 { animation-delay: .3s; } .rise.d4 { animation-delay: .42s; }
+@keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 420px) {
+  body { font-size: 16px; }
+  section { padding-block: 52px; }
+  .top .btn { display: none; }
+  .brand { font-size: 1.02rem; }
+  .info li { grid-template-columns: 1fr; gap: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .trail-draw { stroke-dashoffset: 0; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Bettada Madilu Homestay, home">
+      <span class="brand-mark" aria-hidden="true">BM</span>
+      <span>Bettada <b>Madilu</b></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#package">Trek package</a>
+      <a href="#stay">The stay</a>
+      <a href="#why">Why us</a>
+      <a href="#gallery">Photos</a>
+      <a href="#contact">Book</a>
+    </nav>
+    <div class="top-actions">
+      <a class="btn btn-sun" href="tel:+916363249754">Call now</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><span></span></button>
+    </div>
+  </div>
+  <div class="drawer" id="drawer">
+    <a href="#package">Trek package</a>
+    <a href="#stay">The stay</a>
+    <a href="#why">Why us</a>
+    <a href="#gallery">Photos</a>
+    <a href="#contact">Book</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-rating rise">&#9733; 4.9 &middot; 203 Google reviews</span>
+          <h1 class="rise d1">Your basecamp to <span class="mark">Kudremukh Peak</span></h1>
+          <p class="sub rise d2">Authentic Malnad hospitality in Mullodi, very close to the forest checkpost. Sleep, eat, and start walking.</p>
+          <div class="hero-cta rise d3">
+            <a class="btn btn-tile" href="https://wa.me/916363249754?text=Hi%20Bettada%20Madilu%2C%20I%27d%20like%20to%20book%20a%20stay." target="_blank" rel="noopener">WhatsApp us</a>
+            <a class="btn" href="#package">See the trek package</a>
+          </div>
+          <p class="hero-num rise d4">Call or WhatsApp: <strong>+91 63632 49754</strong></p>
+        </div>
+        <div class="polas rise d2">
+          <figure class="pola"><img src="images/house-hills.jpg" width="1000" height="448" alt="The homestay with its orange tile roof below green Kudremukh hills" style="object-position:30% 50%"><figcaption><span class="sticker">Your base</span></figcaption></figure>
+          <figure class="pola"><img src="images/waterfall-rocks.jpg" width="1000" height="750" alt="Water tumbling over dark rocks in a forest stream" style="object-position:55% 50%"><figcaption><span class="sticker">Falls</span></figcaption></figure>
+          <figure class="pola"><img src="images/bonfire.jpg" width="760" height="936" alt="Guests sitting around a bonfire at night"><figcaption><span class="sticker">Bonfire</span></figcaption></figure>
+        </div>
+      </div>
+
+      <div class="trail" aria-label="Sketch of the route from Bettada Madilu past the forest checkpost to Kudremukh Peak">
+        <svg viewBox="0 0 600 250" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 250 L0 150 C60 120 90 110 140 126 C200 146 230 96 290 84 C350 72 380 40 440 26 C480 18 500 40 530 60 C560 80 580 70 600 62 L600 250 Z" fill="#cfe3c9" stroke="#12251b" stroke-width="3" vector-effect="non-scaling-stroke"/>
+          <path d="M0 250 L0 214 C70 188 130 204 200 198 C280 190 330 168 400 176 C470 184 540 160 600 168 L600 250 Z" fill="#2e9b5a" stroke="#12251b" stroke-width="3" vector-effect="non-scaling-stroke"/>
+          <path class="trail-path" d="M96 200 C150 190 200 205 250 170 C300 135 330 150 380 110 C420 80 440 70 468 60" fill="none" stroke="#12251b" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke" opacity=".25"/>
+          <path class="trail-draw" pathLength="700" d="M96 200 C150 190 200 205 250 170 C300 135 330 150 380 110 C420 80 440 70 468 60" fill="none" stroke="#b83d1b" stroke-width="4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+          <circle cx="96" cy="200" r="7" fill="#b83d1b" stroke="#12251b" stroke-width="3" vector-effect="non-scaling-stroke"/>
+          <circle cx="468" cy="60" r="7" fill="#ffc83d" stroke="#12251b" stroke-width="3" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <span class="sticker tag home">Bettada Madilu, Mullodi</span>
+        <span class="sticker tag post">Forest checkpost</span>
+        <span class="sticker tag peak">Kudremukh Peak &middot; 1,894 m</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="band" aria-hidden="true">
+    <div class="band-track">
+      <span>Dinner on arrival</span><span>Early breakfast</span><span>Packed trek lunch</span><span>Evening snacks</span><span>4x4 jeep transfers</span><span>Midnight check-in welcome</span><span>Open 24 hours</span>
+      <span>Dinner on arrival</span><span>Early breakfast</span><span>Packed trek lunch</span><span>Evening snacks</span><span>4x4 jeep transfers</span><span>Midnight check-in welcome</span><span>Open 24 hours</span>
+    </div>
+  </div>
+
+  <section id="package">
+    <div class="wrap">
+      <span class="eyebrow">Trekker's package</span>
+      <h2 class="h2">Four meals. One jeep. <em>Zero stress.</em></h2>
+      <p class="lede">Kudremukh means "horse face" in Kannada, and the peak is a long day. We feed you for all of it, from the night before to the moment you get back.</p>
+
+      <div class="cards">
+        <article class="pkg"><span class="sticker when">On arrival</span><h3>Dinner</h3><p>A hot, homely Malnad dinner waiting for you, even when you roll in late.</p></article>
+        <article class="pkg"><span class="sticker when">Before the trek</span><h3>Early breakfast</h3><p>Fed and ready early, so you reach the trail while the hills are still cool.</p></article>
+        <article class="pkg"><span class="sticker when">On the trail</span><h3>Packed lunch</h3><p>A lunch box for each trekker to carry up to Kudremukh Peak.</p></article>
+        <article class="pkg"><span class="sticker when">After the trek</span><h3>Evening snacks</h3><p>Something warm waiting when you come down tired and hungry.</p></article>
+      </div>
+
+      <div class="dish">
+        <div>
+          <span class="sticker" style="background:var(--sun);color:var(--ink)">Guest favourite</span>
+          <h3 style="margin-top:14px">Pork pepper dry</h3>
+          <p>Fresh, hygienic Malnad-style food in generous portions. Guests talk about the pork pepper dry long after they leave.</p>
+        </div>
+        <div class="jeep">
+          <span class="sticker">4x4 jeep transfers</span>
+          <ul>
+            <li>Jeep pickup and drop for guests who arrive at odd hours, midnight included.</li>
+            <li>Jeep ride to the trek base camp before the hike.</li>
+            <li>We help with trek permissions and arrangements.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stay" id="stay">
+    <div class="wrap">
+      <span class="eyebrow">The stay</span>
+      <h2 class="h2">Mountain views from <em>your window.</em></h2>
+      <div class="stay-grid">
+        <div class="photo-stack">
+          <div class="price"><small>from</small><strong>&#8377;2,000</strong><small>/ night</small></div>
+          <div class="big"><img src="images/tents-house.jpg" width="1000" height="674" alt="Two-storey homestay with orange steps and camping tents in the front yard" loading="lazy"></div>
+          <div class="small"><img src="images/guests-balcony.jpg" width="900" height="676" alt="Guests standing in front of the homestay balcony with green hills behind" loading="lazy"></div>
+        </div>
+        <div>
+          <div class="facts">
+            <div class="fact"><b>20+</b><span>Guests in a group</span></div>
+            <div class="fact"><b>4</b><span>Large bedrooms</span></div>
+            <div class="fact"><b>2</b><span>Bathrooms</span></div>
+            <div class="fact"><b>1</b><span>Living room</span></div>
+            <div class="fact wide"><b>24h</b><span>Open every day, Monday to Sunday</span></div>
+          </div>
+          <ul class="checks">
+            <li>Simple, clean rooms with hygienic washrooms.</li>
+            <li>Scenic hill and forest views straight from the rooms.</li>
+            <li>Swimming pool on the property.</li>
+            <li>Fair prices for the Samse and Mullodi belt, good for trekking groups, friends and families.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <span class="eyebrow">Why stay with us</span>
+      <h2 class="h2">Start the trail <em>earlier.</em></h2>
+      <div class="why-grid">
+        <div class="why-list">
+          <div class="why"><i>1</i><div><h3>Next to the checkpost</h3><p>We are in Mullodi, very close to the Kudremukh Forest Checkpost, so there is no long drive before you start walking.</p></div></div>
+          <div class="why"><i>2</i><div><h3>Late arrival? No problem</h3><p>Reaching at midnight is fine. Tell us your time and a jeep will be there to bring you to the homestay.</p></div></div>
+          <div class="why"><i>3</i><div><h3>Family-run</h3><p>Abhilash and Sharadha Amma host every stay themselves. Guests say they were treated like family.</p></div></div>
+        </div>
+        <figure class="family"><img src="images/group-front.jpg" width="760" height="1144" alt="A group of eight guests posing in front of the homestay" loading="lazy"><figcaption>Every trekking group leaves with a photo here.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <span class="eyebrow">Photos</span>
+      <h2 class="h2">Mornings, mud and <em>bonfires.</em></h2>
+      <div class="mason">
+        <figure class="pola"><img src="images/jeeps-camp.jpg" width="1000" height="490" alt="Two jeeps parked at the gate beside the pink house with tents set up and guests walking around" loading="lazy"><figcaption><span class="sticker">Jeeps at the gate</span></figcaption></figure>
+        <figure class="pola"><img src="images/bonfire.jpg" width="760" height="936" alt="Guests warming up around a bonfire after dark" loading="lazy"><figcaption><span class="sticker">Bonfire nights</span></figcaption></figure>
+        <figure class="pola"><img src="images/waterfall-swim.jpg" width="1000" height="448" alt="Guests splashing in the pool below a waterfall" loading="lazy"><figcaption><span class="sticker">Waterfall dip</span></figcaption></figure>
+        <figure class="pola"><img src="images/house-hills.jpg" width="1000" height="448" alt="The homestay seen across the valley with misty green hills" loading="lazy"><figcaption><span class="sticker">The view back</span></figcaption></figure>
+        <figure class="pola"><img src="images/waterfall-rocks.jpg" width="1000" height="750" alt="Forest stream running over large dark rocks" loading="lazy"><figcaption><span class="sticker">Forest stream</span></figcaption></figure>
+        <figure class="pola"><img src="images/tents-house.jpg" width="1000" height="674" alt="Tents pitched on a tarp in front of the homestay" loading="lazy"><figcaption><span class="sticker">Camp in the yard</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <span class="eyebrow">Guest reviews</span>
+      <h2 class="h2">What guests <em>keep saying.</em></h2>
+      <div class="rev-grid">
+        <div class="score"><b>4.9</b><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span>203 Google reviews</span></div>
+        <div>
+          <div class="themes">
+            <span class="theme">Treated like family</span>
+            <span class="theme">Safe and welcoming</span>
+            <span class="theme">Spotless rooms and washrooms</span>
+            <span class="theme">Great value</span>
+            <span class="theme">Midnight arrival handled</span>
+            <span class="theme">Views of the Kudremukh hills</span>
+          </div>
+          <p class="rev-note">These are the themes that come up most in our Google reviews. <a href="https://www.google.com/maps/search/?api=1&amp;query=Bettada+Madilu+Homestay+Mullodi+Kudremukh" target="_blank" rel="noopener"><strong>Read the reviews on Google Maps</strong></a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <span class="eyebrow">Book your stay</span>
+      <h2 class="h2">Tell us when you're <em>coming.</em></h2>
+      <div class="contact-grid">
+        <div class="card">
+          <h3>Call or WhatsApp</h3>
+          <strong class="big-num" id="phone">+91 63632 49754</strong>
+          <div class="row-btns">
+            <a class="btn btn-moss" href="tel:+916363249754">Call</a>
+            <a class="btn btn-sun" href="https://wa.me/916363249754" target="_blank" rel="noopener">WhatsApp</a>
+            <button class="btn" type="button" id="copyBtn">Copy number</button>
+          </div>
+          <ul class="info">
+            <li><b>Address</b><span>Mullodi, Kudremukh, Karnataka 577124, near Samse and the Kudremukh Forest Checkpost</span></li>
+            <li><b>Open</b><span>24 hours, Monday to Sunday</span></li>
+            <li><b>Hosts</b><span>Abhilash and Sharadha Amma</span></li>
+          </ul>
+          <div class="row-btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Bettada+Madilu+Homestay+Mullodi+Kudremukh" target="_blank" rel="noopener">Open in Google Maps</a></div>
+        </div>
+        <div class="card">
+          <h3>Send your dates</h3>
+          <p class="small-note" style="margin-top:6px">Fill this in and it opens WhatsApp with the message ready to send.</p>
+          <form id="bookForm">
+            <label for="name">Your name<input id="name" name="name" type="text" autocomplete="name" placeholder="Your name"></label>
+            <div class="two">
+              <label for="date">Check-in date<input id="date" name="date" type="date"></label>
+              <label for="guests">Guests<input id="guests" name="guests" type="number" min="1" max="60" value="4" inputmode="numeric"></label>
+            </div>
+            <label for="plan">What do you need
+              <select id="plan" name="plan">
+                <option>Stay and full trek package</option>
+                <option>Stay only</option>
+                <option>Jeep pickup and stay</option>
+                <option>Group booking, 10+ people</option>
+              </select>
+            </label>
+            <label for="arrive">Arrival time
+              <input id="arrive" name="arrive" type="text" placeholder="For example, around midnight">
+            </label>
+            <button class="btn btn-tile" type="submit">Send on WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Bettada Madilu Homestay, Mullodi, Kudremukh, Karnataka 577124</span>
+    <span>+91 63632 49754</span>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/916363249754?text=Hi%20Bettada%20Madilu%2C%20I%27d%20like%20to%20book%20a%20stay." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#12251b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.7-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
+  Chat
+</a>
+
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn'), drawer = document.getElementById('drawer');
+  function setMenu(open) {
+    drawer.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  btn.addEventListener('click', function () { setMenu(!drawer.classList.contains('open')); });
+  drawer.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
+
+  var copyBtn = document.getElementById('copyBtn');
+  copyBtn.addEventListener('click', function () {
+    var num = '+91 63632 49754';
+    function done() { copyBtn.textContent = 'Copied'; setTimeout(function () { copyBtn.textContent = 'Copy number'; }, 1800); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById('phone'));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      copyBtn.textContent = 'Number selected'; setTimeout(function () { copyBtn.textContent = 'Copy number'; }, 1800);
+    }
+    try { navigator.clipboard.writeText(num).then(done, fallback); } catch (e) { fallback(); }
+  });
+
+  var form = document.getElementById('bookForm');
+  var d = document.getElementById('date');
+  try { d.min = new Date().toISOString().slice(0, 10); } catch (e) {}
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = function (id) { return document.getElementById(id).value.trim(); };
+    var lines = ['Hi Bettada Madilu, I would like to book a stay.'];
+    if (v('name')) lines.push('Name: ' + v('name'));
+    if (v('date')) lines.push('Check-in: ' + v('date'));
+    if (v('guests')) lines.push('Guests: ' + v('guests'));
+    lines.push('Need: ' + v('plan'));
+    if (v('arrive')) lines.push('Arrival time: ' + v('arrive'));
+    var url = 'https://wa.me/916363249754?text=' + encodeURIComponent(lines.join('\n'));
+    window.open(url, '_blank', 'noopener');
+  });
+})();
+</script>
